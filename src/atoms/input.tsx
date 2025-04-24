@@ -7,10 +7,10 @@ interface InputProps {
   disabled?: boolean;
   min?: number;
   max?: number;
-  style?: React.CSSProperties;
+  className?: string;
 }
 
-const Input: React.FC<InputProps> = ({ type, value, onChange, disabled, min, max, style }) => (
+const Input: React.FC<InputProps> = ({ type, value, onChange, disabled, min, max, className }) => (
   <input
     type={type}
     value={value}
@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ type, value, onChange, disabled, min, max
     disabled={disabled}
     min={min}
     max={max}
-    style={style}
+    className={className}
   />
 );
 
