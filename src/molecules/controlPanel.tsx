@@ -23,9 +23,9 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   onStartMission,
   executing,
 }) => (
-  <div style={{ marginBottom: 20 }}>
-    <label>
-      X:
+  <div className="mb-5 flex flex-col space-y-3">
+    <label className="flex items-center space-x-2">
+      <span>X:</span>
       <Input
         type="number"
         value={startX}
@@ -33,11 +33,11 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         disabled={executing}
         min={0}
         max={199}
-        style={{ width: 50, marginRight: 10 }}
+        className="w-16 p-1 border border-gray-300 rounded-md"
       />
     </label>
-    <label>
-      Y:
+    <label className="flex items-center space-x-2">
+      <span>Y:</span>
       <Input
         type="number"
         value={startY}
@@ -45,15 +45,16 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         disabled={executing}
         min={0}
         max={199}
-        style={{ width: 50, marginRight: 10 }}
+        className="w-16 p-1 border border-gray-300 rounded-md"
       />
     </label>
-    <label>
-      Dirección:
+    <label className="flex items-center space-x-2">
+      <span>Dirección:</span>
       <select
         value={startDir}
         onChange={(e) => setStartDir(e.target.value)}
         disabled={executing}
+        className="p-1 border border-gray-300 rounded-md"
       >
         <option value="N">N</option>
         <option value="S">S</option>
@@ -61,7 +62,11 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         <option value="W">W</option>
       </select>
     </label>
-    <Button onClick={onStartMission} disabled={executing} style={{ marginLeft: 10 }}>
+    <Button 
+      onClick={onStartMission} 
+      disabled={executing} 
+      className="ml-2 mr-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-gray-300"
+      >
       Iniciar misión
     </Button>
   </div>

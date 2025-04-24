@@ -4,11 +4,11 @@ interface ButtonProps {
   onClick: () => void;
   disabled?: boolean;
   children: React.ReactNode;
-  style?: React.CSSProperties;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, disabled, children, style }) => (
-  <button onClick={onClick} disabled={disabled} style={style}>
+const Button: React.FC<ButtonProps> = ({ onClick, disabled, children, className }) => (
+  <button onClick={onClick} disabled={disabled} className={className}>
     {children}
   </button>
 );

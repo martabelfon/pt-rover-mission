@@ -1,5 +1,7 @@
 import React from "react";
 import { RoverPosition, Obstacle } from "@/types/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMountain, faShuttleSpace } from "@fortawesome/free-solid-svg-icons";
 
 interface MarsGridProps {
   rover: RoverPosition;
@@ -13,12 +15,26 @@ const MarsGrid: React.FC<MarsGridProps> = ({ rover, obstacles, worldSize, viewSi
   const startX = Math.max(0, Math.min(worldSize - viewSize, rover.x - half));
   const startY = Math.max(0, Math.min(worldSize - viewSize, rover.y - half));
 
+  const getRotationClass = (direction: string) => {
+    switch (direction) {
+      case "E":
+        return "rotate-0";
+      case "S":
+        return "rotate-90";
+      case "W":
+        return "rotate-180";
+      case "N":
+        return "rotate-270";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div
+      className="grid gap-0"
       style={{
-        display: "grid",
         gridTemplateColumns: `repeat(${viewSize}, 20px)`,
-        margin: "20px 0",
       }}
     >
       {Array.from({ length: viewSize }).flatMap((_, row) =>
@@ -32,23 +48,16 @@ const MarsGrid: React.FC<MarsGridProps> = ({ rover, obstacles, worldSize, viewSi
           return (
             <div
               key={`${x}-${y}`}
-              style={{
-                width: 20,
-                height: 20,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 14,
-                backgroundColor: !isInsideMap ? "#eee" : isObstacle ? "red" : "white",
-                border: "1px solid #ccc",
-              }}
+              className={`flex items-center justify-center text-sm border border-gray-300 ${
+                !isInsideMap ? "bg-gray-200" : "bg-white"
+              }`}
+              style={{ width: 20, height: 20 }}
             >
-              {isInsideMap && isRover && {
-                N: "↑",
-                S: "↓",
-                E: "→",
-                W: "←",
-              }[rover.direction]}
+             {isInsideMap && isRover ? (
+                <FontAwesomeIcon icon={faShuttleSpace} className={`text-[#16adfa] ${getRotationClass(rover.direction)}`} />
+              ) : isObstacle ? (
+                <FontAwesomeIcon icon={faMountain} className="text-red-500" />
+              ) : null}
             </div>
           );
         })
