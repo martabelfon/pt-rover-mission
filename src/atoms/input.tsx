@@ -1,0 +1,25 @@
+import React from "react";
+
+interface InputProps {
+  type: string;
+  value: number | string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  min?: number;
+  max?: number;
+  style?: React.CSSProperties;
+}
+
+const Input: React.FC<InputProps> = ({ type, value, onChange, disabled, min, max, style }) => (
+  <input
+    type={type}
+    value={value}
+    onChange={onChange}
+    disabled={disabled}
+    min={min}
+    max={max}
+    style={style}
+  />
+);
+
+export default Input;
