@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ type, value, onChange, disabled, min, max
     disabled={disabled}
     min={min}
     max={max}
-    className={className}
+    className={`border-b-2 border-[#16adfa] focus:border-[#16adfa] focus:outline-none bg-transparent ${className}`}
   />
 );
 
