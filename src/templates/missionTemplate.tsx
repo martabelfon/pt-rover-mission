@@ -68,16 +68,17 @@ const MissionTemplate: React.FC<MissionTemplateProps> = ({
               onChange={onCommandChange}
               placeholder="Comando (ej. FFRLR)"
               disabled={executing}
+              className="text-white"
             />
-            <button onClick={onGenerateRandom} disabled={executing}>
+            <button onClick={onGenerateRandom} disabled={executing} className="text-white mr-1 border border-[#16adfa] rounded-md">
               Generar comando aleatorio
             </button>
-            <button onClick={onExecuteCommand} disabled={executing || !command}>
+            <button onClick={onExecuteCommand} disabled={executing || !command} className="text-white border border-[#16adfa] rounded-md">
               Ejecutar
             </button>
           </div>
           {message && <p>{message}</p>}
-          <p>📍 Posición actual: ({rover.x}, {rover.y}) mirando hacia {rover.direction}</p>
+          <p className="text-white">Posición actual: ({rover.x}, {rover.y}) mirando hacia {rover.direction}</p>
       </div>
       <div className="flex-2 flex justify-center items-center bg-gray-800 rounded-md p-5">
       <MarsGrid rover={rover} obstacles={obstacles} worldSize={worldSize} viewSize={viewSize} />

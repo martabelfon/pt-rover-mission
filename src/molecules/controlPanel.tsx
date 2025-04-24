@@ -25,7 +25,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 }) => (
   <div className="mb-5 flex flex-col space-y-3">
     <label className="flex items-center space-x-2">
-      <span>X:</span>
+      <span className="text-white">X:</span>
       <Input
         type="number"
         value={startX}
@@ -33,11 +33,11 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         disabled={executing}
         min={0}
         max={199}
-        className="w-16 p-1 border border-gray-300 rounded-md"
+        className="w-16 p-1 border border-gray-300 rounded-md text-white"
       />
     </label>
     <label className="flex items-center space-x-2">
-      <span>Y:</span>
+      <span className="text-white">Y:</span>
       <Input
         type="number"
         value={startY}
@@ -45,16 +45,16 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         disabled={executing}
         min={0}
         max={199}
-        className="w-16 p-1 border border-gray-300 rounded-md"
+        className="w-16 p-1 border border-gray-300 rounded-md text-white"
       />
     </label>
     <label className="flex items-center space-x-2">
-      <span>Dirección:</span>
+      <span className="text-white">Dirección:</span>
       <select
         value={startDir}
         onChange={(e) => setStartDir(e.target.value)}
         disabled={executing}
-        className="p-1 border border-gray-300 rounded-md"
+        className="p-1 border border-gray-300 rounded-md text-white"
       >
         <option value="N">N</option>
         <option value="S">S</option>
