@@ -13,6 +13,7 @@ export const useRover = () => {
   const [command, setCommand] = useState("");
   const [message, setMessage] = useState("");
   const [executing, setExecuting] = useState(false);
+  const [pilotName, setPilotName] = useState("");
 
   const onStartMission = () => {
     setRover({ x: startX, y: startY, direction: startDir });
@@ -69,7 +70,7 @@ export const useRover = () => {
 
         const hit = obstacles.some((o) => o.x === next.x && o.y === next.y);
         if (hit) {
-          setMessage(`🚧 Obstáculo encontrado en (${next.x}, ${next.y}). El rover se detuvo.`);
+          setMessage(` Obstáculo encontrado en (${next.x}, ${next.y}). El rover se detuvo.`);
           break;
         }
 
@@ -103,6 +104,8 @@ export const useRover = () => {
     setStartX,
     setStartY,
     setStartDir,
+    pilotName,
+    setPilotName,
     onStartMission,
     command,
     handleCommandChange,
