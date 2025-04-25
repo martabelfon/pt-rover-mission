@@ -122,7 +122,7 @@ Type definitions:
 - Obstacle Found: If the rover encounters an obstacle in its path.
 - End of Map: If the rover tries to leave the map.
 
-## 🌍 Multilingual Support
+### 🌍 Multilingual Support
 The application supports multiple languages. You can switch between different languages to interact with the Mars Rover in your preferred language. To add more languages, follow the structure of the translation files.
 
 ## Current Supported Languages
