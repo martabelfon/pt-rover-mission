@@ -122,16 +122,4 @@ Type definitions:
 - Obstacle Found: If the rover encounters an obstacle in its path.
 - End of Map: If the rover tries to leave the map.
 
-### 🌍 Multilingual Support
-The application supports multiple languages. You can switch between different languages to interact with the Mars Rover in your preferred language. To add more languages, follow the structure of the translation files.
-
-## Current Supported Languages
-
-- English (default)
-- Spanish
-
-## Translation Files
-The translations are stored in the src/i18n/ folder. Each language has its own file (e.g., en.json for English, es.json for Spanish). The files contain key-value pairs where the key is the text identifier, and the value is the translation.
-
-
 
