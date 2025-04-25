@@ -31,6 +31,8 @@ src/
 │   └── utils.ts            # Utility functions
 ├── types/
 │   └── types.ts            # Type definitions
+├── hooks/
+│   └── useRover.ts            # Type definitions
 
 
 ---
@@ -90,18 +92,25 @@ Type definitions:
 
 ### Configure the Rover:
 
-- Set the initial position (X, Y) and direction (N, S, E, W).
-- Click "Start Mission."
+- Enter the pilot's name.
 
-### Enter Commands:
+- Set the initial position (latitude and longitude) on the Mars map.
 
-- Write commands in the input field (F to move forward, L to turn left, R to turn right).
-- Or click "Generate Random Command."
+- Choose the initial direction (North, East, South, West).
 
-### Execute Commands:
+### Start the Mission:
 
-- Click "Execute" to move the rover according to the commands.
-- If the rover encounters an obstacle or reaches the map boundary, an error message will be displayed.
+- Click the "Start Mission" button to begin controlling the rover.
+
+### Control the Rover:
+
+- Enter commands manually in the text box or click "Generate Random Command" to move the rover.
+
+- If the rover encounters an obstacle or attempts to leave the map, an error message will appear.
+
+### Explore the Map:
+
+- Watch the rover move on the interactive map and use the compass to check its current direction.
 
 ## 📚 Command Examples
 
