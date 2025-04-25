@@ -5,8 +5,8 @@ import { generateObstacles, turnLeft, turnRight } from "@/utils/utils";
 const worldSize = 200;
 
 export const useRover = () => {
-  const [startX, setStartX] = useState(10);
-  const [startY, setStartY] = useState(10);
+  const [startX, setStartXState] = useState(0);
+  const [startY, setStartYState] = useState(0);
   const [startDir, setStartDir] = useState<Direction>("N");
   const [rover, setRover] = useState<RoverPosition>({ x: startX, y: startY, direction: startDir });
   const [obstacles, setObstacles] = useState<Obstacle[]>([]);
@@ -14,6 +14,30 @@ export const useRover = () => {
   const [message, setMessage] = useState("");
   const [executing, setExecuting] = useState(false);
   const [pilotName, setPilotName] = useState("");
+
+  const setStartX = (value: string) => {
+    const numValue = Number(value);
+    if (value === "" || isNaN(numValue)) {
+      setStartXState(0);
+    } else if (numValue >= 0 && numValue <= 199) {
+      setStartXState(numValue);
+      setMessage("");
+    } else {
+      setMessage("La longitud inicial debe estar entre 0 y 199.");
+    }
+  };
+  
+  const setStartY = (value: string) => {
+    const numValue = Number(value);
+    if (value === "" || isNaN(numValue)) {
+      setStartYState(0);
+    } else if (numValue >= 0 && numValue <= 199) {
+      setStartYState(numValue);
+      setMessage("");
+    } else {
+      setMessage("La latitud inicial debe estar entre 0 y 199.");
+    }
+  };
 
   const onStartMission = () => {
     setRover({ x: startX, y: startY, direction: startDir });
@@ -63,14 +87,14 @@ export const useRover = () => {
 
         if (next.x < 0 || next.x >= worldSize || next.y < 0 || next.y >= worldSize) {
           setMessage(
-            `Obstáculo encontrado, fin del mapa en (${current.x}, ${current.y}). El rover se detuvo.`
+            `Obstáculo encontrado, fin del mapa en (${current.x}, ${current.y}). El rover se detuvo por seguridad. Presta atención al terreno!`
           );
           break;
         }
 
         const hit = obstacles.some((o) => o.x === next.x && o.y === next.y);
         if (hit) {
-          setMessage(` Obstáculo encontrado en (${next.x}, ${next.y}). El rover se detuvo.`);
+          setMessage(` Obstáculo encontrado en las coordenadas (${next.x}, ${next.y}) dirección ${current.direction}.  El rover se detuvo por seguridad. Presta atención al terreno!`);
           break;
         }
 
@@ -106,12 +130,13 @@ export const useRover = () => {
     setStartDir,
     pilotName,
     setPilotName,
-    onStartMission,
     command,
     handleCommandChange,
     handleGenerateRandom,
     executeCommand,
     executing,
     message,
+    setMessage,
+    onStartMission,
   };
 };
