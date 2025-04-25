@@ -123,4 +123,3 @@ Type definitions:
 - End of Map: If the rover tries to leave the map.
 
 
-
