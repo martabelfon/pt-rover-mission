@@ -16,8 +16,8 @@ const Compass: React.FC<CompassProps> = ({ direction, position }) => {
   return (
     <div className="relative w-48 h-48 mx-auto mt-6" style={{ backgroundImage: "url('icons/compass.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       {position && (
-        <div className="absolute text-white font-bold text-lg" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-          {position.x}/{position.y}
+        <div className="flex flex-col justify-center items-center absolute text-white font-bold text-lg " style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+          {position.y} | {position.x}
         </div>
       )}
       {letters.map(({ label, top, left, translateX = "0", translateY = "0" }) => (
