@@ -64,7 +64,6 @@ const MissionTemplate: React.FC<MissionTemplateProps> = ({
             </button>
           </div>
           {message && <p>{message}</p>}
-          <p className="text-white">Posición actual: ({rover.x}, {rover.y}) mirando hacia {rover.direction}</p>
       </div>
       
   </div>

@@ -7,6 +7,7 @@ import { useRover } from "@/hooks/useRover";
 import Header from "@/organisms/header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShuttleSpace } from "@fortawesome/free-solid-svg-icons";
+import Compass from "@/components/compass";
 
 export default function Page() {
   const {
@@ -130,6 +131,8 @@ export default function Page() {
                 <p><strong>Nombre del piloto:</strong> {pilotName}</p>
                 <p><strong>Posición inicial:</strong> Longitud {startX}, Latitud {startY}</p>
                 <p><strong>Dirección inicial:</strong> {startDir}</p>
+                <Compass direction={rover.direction} position={{ x: rover.x, y: rover.y }} />
+
               </div>
               <MissionTemplate
                 rover={rover}
